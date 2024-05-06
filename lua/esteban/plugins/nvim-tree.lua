@@ -7,7 +7,7 @@ return {
 		-- recommended settings from nvim-tree documentation
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
-		vim.cmd([[highlight NvimTreeNormal guibg=#191a2a]])
+		vim.cmd([[highlight NvimTreeNormal guibg=#191a2a guifg=#f1eff8]])
 
 		nvimtree.setup({
 			view = {
