@@ -1,11 +1,11 @@
-local is_transparent = true
+local is_transparent = false
 return {
 	{
 		"folke/tokyonight.nvim",
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
 			require("tokyonight").setup({
-				style = "night",
+				style = "moon",
 				transparent = is_transparent,
 				styles = {
 					sidebars = is_transparent and "transparent" or "dark",
