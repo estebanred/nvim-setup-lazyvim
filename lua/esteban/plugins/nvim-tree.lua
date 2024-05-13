@@ -8,6 +8,7 @@ return {
 		vim.g.loaded_netrw = 1
 		vim.g.loaded_netrwPlugin = 1
 		vim.cmd([[highlight NvimTreeNormal guibg=NONE guifg=NONE]])
+		vim.cmd([[highlight NvimTreeNormalNC guibg=NONE guifg=NONE]])
 
 		nvimtree.setup({
 			view = {
