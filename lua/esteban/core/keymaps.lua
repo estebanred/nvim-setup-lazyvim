@@ -35,6 +35,9 @@ keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save buffer" })
 -- Normal mode mappings
 keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
 keymap.set("n", "<A-k>", ":m .-2<CR>==", { desc = "Move line up" })
+keymap.set("n", "<leader>gn", ":bprevious<cr>", { desc = "Open previous buffer" })
+keymap.set("n", "<leader>gp", ":bnext<cr>", { desc = "Open next buffer" })
+keymap.set("n", "<leader>gd", ":bdelete<cr>", { desc = "Delete current buffer" })
 
 -- Visual mode mappings
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
