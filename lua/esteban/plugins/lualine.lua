@@ -13,7 +13,7 @@ local colors = {
   black  = '#080808',
   white  = '#c6c6c6',
   red    = '#ff5189',
-  violet = '#d183e8',
+  violet = '#be94f9',
   grey   = '#303030',
 }
 
@@ -42,7 +42,7 @@ local colors = {
 				section_separators = { left = "", right = "" },
 			},
 			sections = {
-				lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
+				-- lualine_a = { { "mode", separator = { left = "" }, right_padding = 2 } },
 				-- lualine_b = { "branch" },
 				lualine_b = {
 					{
@@ -56,7 +56,7 @@ local colors = {
 				lualine_x = { "branch" },
 				lualine_y = { "filetype", "progress" },
 				lualine_z = {
-					{ "location", separator = { right = "" }, left_padding = 2 },
+					{ "location", left_padding = 2 },
 				},
 			},
 			inactive_sections = {

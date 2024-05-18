@@ -5,7 +5,15 @@ return {
 	},
 	{
 		"j-hui/fidget.nvim",
-		opts = {},
+		config = function()
+			require("fidget").setup({
+				window = {
+					blend = 0,
+					relative = "editor",
+				},
+			})
+		end,
+		tag = "legacy",
 	},
 	{
 		"rcarriga/nvim-notify",
@@ -50,17 +58,5 @@ return {
 				end,
 			})
 		end,
-	},
-
-	-- bufferline
-	{
-		"akinsho/bufferline.nvim",
-		opts = {
-			options = {
-				mode = "tabs",
-				show_buffer_close_icons = false,
-				show_close_icon = false,
-			},
-		},
 	},
 }
