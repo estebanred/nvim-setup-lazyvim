@@ -31,6 +31,8 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save buffer" })
+keymap.set("n", "<leader>q", ":q<CR>", { desc = "Quit buffer" })
+keymap.set("n", "<leader>Q", ":qa<CR>", { desc = "Quit all buffers" })
 
 -- Normal mode mappings
 keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
