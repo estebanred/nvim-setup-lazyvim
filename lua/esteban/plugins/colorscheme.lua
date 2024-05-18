@@ -1,22 +1,33 @@
-local is_transparent = true
+-- local is_transparent = true
+-- return {
+-- 	{
+-- 		"folke/tokyonight.nvim",
+-- 		priority = 1000, -- make sure to load this before all the other start plugins
+-- 		config = function()
+-- 			require("tokyonight").setup({
+-- 				style = "moon",
+-- 				transparent = is_transparent,
+-- 				styles = {
+-- 					sidebars = is_transparent and "transparent" or "dark",
+-- 					floats = is_transparent and "transparent" or "dark",
+-- 				},
+-- 			})
+-- 			vim.cmd([[colorscheme tokyonight]])
+-- 		end,
+-- 	},
+-- }
 return {
 	{
-		"folke/tokyonight.nvim",
-		priority = 1000, -- make sure to load this before all the other start plugins
+		"sainnhe/sonokai",
+		priority = 1000,
 		config = function()
-			require("tokyonight").setup({
-				style = "moon",
-				transparent = is_transparent,
-				styles = {
-					sidebars = is_transparent and "transparent" or "dark",
-					floats = is_transparent and "transparent" or "dark",
-				},
-			})
-			vim.cmd([[colorscheme tokyonight]])
+			vim.g.sonokai_transparent_background = "1"
+			vim.g.sonokai_enable_italic = "1"
+			vim.g.sonokai_style = "andromeda"
+			vim.cmd.colorscheme("sonokai")
 		end,
 	},
 }
-
 -- return {
 -- 	"dgox16/oldworld.nvim",
 -- 	lazy = false,
