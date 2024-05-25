@@ -1,80 +1,47 @@
 return {
-	{
-		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
-		dependencies = {
-			"hrsh7th/cmp-buffer", -- source for text in buffer
-			"hrsh7th/cmp-path", -- source for file system paths
-			{
-				"L3MON4D3/LuaSnip",
-				-- follow latest release.
-				version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-				-- install jsregexp (optional!).
-				build = "make install_jsregexp",
-			},
-			"saadparwaiz1/cmp_luasnip", -- for autocompletion
-			"rafamadriz/friendly-snippets", -- useful snippets
-			"onsails/lspkind.nvim", -- vs-code like pictograms
-			{
-				"NvChad/nvim-colorizer.lua",
-				opts = {
-					user_default_options = {
-						tailwind = true,
-					},
-				},
-			},
-			{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
-		},
-
-		config = function()
-			local cmp = require("cmp")
-
-			local luasnip = require("luasnip")
-
-			local lspkind = require("lspkind")
-
-			-- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
-			require("luasnip.loaders.from_vscode").lazy_load()
-			require("cmp").config.formatting = {
-				format = require("tailwindcss-colorizer-cmp").setup({
-					color_square_width = 2,
-				}),
-			}
-
-			cmp.setup({
-				completion = {
-					completeopt = "menu,menuone,preview,noselect",
-				},
-				snippet = { -- configure how nvim-cmp interacts with snippet engine
-					expand = function(args)
-						luasnip.lsp_expand(args.body)
-					end,
-				},
-				mapping = cmp.mapping.preset.insert({
-					["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-					["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-					["<C-b>"] = cmp.mapping.scroll_docs(-4),
-					["<C-f>"] = cmp.mapping.scroll_docs(4),
-					["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-					["<C-e>"] = cmp.mapping.abort(), -- close completion window
-					["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-				}),
-				-- sources for autocompletion
-				sources = cmp.config.sources({
-					{ name = "luasnip" }, -- snippets
-					{ name = "buffer" }, -- text within current buffer
-					{ name = "path" }, -- file system paths
-					{ name = "tailwindcss" },
-				}),
-
-				-- configure lspkind for vs-code like pictograms in completion menu
-				formatting = {
-					format = lspkind.cmp_format({
-						maxwidth = 50,
-						ellipsis_char = "...",
-					}),
-				},
-			})
-		end,
+	"hrsh7th/nvim-cmp",
+	dependencies = {
+		"luckasRanarison/tailwind-tools.nvim",
+		"onsails/lspkind.nvim",
+		-- other dependencies
 	},
+	opts = function()
+		local cmp = require("cmp")
+		local lspkind = require("lspkind")
+		local tailwind_tools = require("tailwind-tools.cmp")
+
+		return {
+			sources = {
+				{ name = "tailwind-tools", priority = 1000 },
+				{ name = "nvim_lsp", priority = 900 },
+				{ name = "luasnip", priority = 750 },
+				{ name = "buffer", priority = 500 },
+				{ name = "path", priority = 250 },
+			},
+			mapping = cmp.mapping.preset.insert({
+				["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+				["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+				["<C-b>"] = cmp.mapping.scroll_docs(-4),
+				["<C-f>"] = cmp.mapping.scroll_docs(4),
+				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+				["<C-e>"] = cmp.mapping.abort(), -- close completion window
+				["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+			}),
+			formatting = {
+				format = lspkind.cmp_format({
+					before = tailwind_tools.lspkind_format,
+					mode = "symbol_text", -- Show symbol and text
+					maxwidth = 50, -- Prevent the popup from showing more than provided characters
+					ellipsis_char = "...", -- Show ellipsis when the popup is too wide
+					menu = {
+						buffer = "[Buffer]",
+						nvim_lsp = "[LSP]",
+						luasnip = "[Snip]",
+						path = "[Path]",
+						tailwind_tools = "[Tailwind]",
+					},
+				}),
+			},
+		}
+	end,
 }

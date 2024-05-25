@@ -50,3 +50,4 @@ opt.laststatus = 0
 opt.scrolloff = 10
 opt.inccommand = "split"
 opt.wildignore:append({ "*/node_modules/*" })
+opt.showmode = false
