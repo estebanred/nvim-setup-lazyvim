@@ -13,7 +13,13 @@ return {
 		return {
 			sources = {
 				{ name = "tailwind-tools", priority = 1000 },
-				{ name = "nvim_lsp", priority = 900 },
+				{
+					name = "nvim_lsp",
+					priority = 900,
+					entry_filter = function(entry, ctx)
+						return require("cmp").lsp.CompletionItemKind.Snippet ~= entry:get_kind()
+					end,
+				},
 				{ name = "luasnip", priority = 750 },
 				{ name = "buffer", priority = 500 },
 				{ name = "path", priority = 250 },
@@ -34,11 +40,11 @@ return {
 					maxwidth = 50, -- Prevent the popup from showing more than provided characters
 					ellipsis_char = "...", -- Show ellipsis when the popup is too wide
 					menu = {
+						tailwind_tools = "[Tailwind]",
 						buffer = "[Buffer]",
 						nvim_lsp = "[LSP]",
 						luasnip = "[Snip]",
 						path = "[Path]",
-						tailwind_tools = "[Tailwind]",
 					},
 				}),
 			},
