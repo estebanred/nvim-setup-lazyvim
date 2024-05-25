@@ -41,6 +41,16 @@ return {
 
 		-- basic telescope configuration
 		local conf = require("telescope.config").values
+		table.insert(conf.vimgrep_arguments, "--fixed-strings")
+
+		local function custom_live_grep()
+			require("telescope.builtin").live_grep({
+				vimgrep_arguments = conf.vimgrep_arguments,
+			})
+		end
+
+		vim.keymap.set("n", "<leader>fl", custom_live_grep, { desc = "Find string with fixed-strings in cwd" })
+
 		local function toggle_telescope(harpoon_files)
 			local file_paths = {}
 			for _, item in ipairs(harpoon_files.items) do
