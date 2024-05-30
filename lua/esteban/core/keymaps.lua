@@ -14,7 +14,12 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- delete single character without copying into register
 -- keymap.set("n", "x", '"_x')
-
+-- keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move up and center" }) -- increment
+-- keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move down and center" }) -- increment
+-- nnoremap("<C-u>", "<C-u>zz")
+-- nnoremap("<C-d>", "<C-d>zz")
+vim.api.nvim_set_keymap("n", "<C-u>", "<C-u>zz", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-d>", "<C-d>zz", { noremap = true, silent = true })
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
