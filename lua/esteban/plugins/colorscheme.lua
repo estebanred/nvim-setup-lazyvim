@@ -1,13 +1,14 @@
-return {
-	"folke/tokyonight.nvim",
-	priority = 1000, -- make sure to load this before all the other start plugins
-	config = function()
-		-- require("tokyonight").setup({
-		-- 	style = "moon",
-		-- })
-		vim.cmd([[colorscheme tokyonight-storm]])
-	end,
-}
+-- return {}
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	priority = 1000, -- make sure to load this before all the other start plugins
+-- 	config = function()
+-- 		-- require("tokyonight").setup({
+-- 		-- 	style = "moon",
+-- 		-- })
+-- 		vim.cmd([[colorscheme tokyonight-storm]])
+-- 	end,
+-- }
 -- return {
 -- 	{
 -- 		"sainnhe/sonokai",
@@ -29,17 +30,25 @@ return {
 -- 		vim.cmd.colorscheme("oldworld")
 -- 	end,
 -- }
-
 -- return {
--- 	"rose-pine/neovim",
---
+-- 	"miikanissi/modus-themes.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	-- config = true,
 -- 	config = function()
--- 		require("rose-pine").setup({
--- 			variant = "moon",
--- 		})
--- 		vim.cmd("colorscheme rose-pine")
+-- 		vim.cmd.colorscheme("modus")
 -- 	end,
 -- }
+return {
+	-- "rose-pine/neovim",
+	--
+	-- config = function()
+	-- 	require("rose-pine").setup({
+	-- 		variant = "moon",
+	-- 	})
+	-- 	vim.cmd("colorscheme rose-pine")
+	-- end,
+}
 
 -- return {
 -- 	"catppuccin/nvim",
