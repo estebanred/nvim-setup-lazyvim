@@ -19,7 +19,9 @@ return {
 				wilder.make_hl("WilderMauve", { { a = 1 }, { a = 1 }, { foreground = macchiato.mauve } })
 
 			-- Enable wilder when pressing :, / or ?
-			wilder.setup({ modes = { ":", "/", "?" } })
+			wilder.setup({
+				modes = { ":", "/", "?" },
+			})
 
 			-- Enable fuzzy matching for commands and buffers
 			wilder.set_option("pipeline", {
@@ -34,15 +36,15 @@ return {
 			})
 			wilder.set_option(
 				"renderer",
-				wilder.popupmenu_renderer({
-					highlights = {
-						border = "Normal", -- highlight to use for the border
-					},
-					max_height = "15%", -- max height of the palette
-					min_width = "25%",
-					highlighter = wilder.basic_highlighter(),
-					left = { " ", wilder.popupmenu_devicons() },
-					right = { " ", wilder.popupmenu_scrollbar() },
+				wilder.renderer_mux({
+					[":"] = wilder.popupmenu_renderer({
+						highlighter = wilder.basic_highlighter(),
+						max_height = 10,
+					}),
+					["/"] = wilder.wildmenu_renderer({
+						highlighter = wilder.basic_highlighter(),
+						max_height = 10,
+					}),
 				})
 			)
 		end,

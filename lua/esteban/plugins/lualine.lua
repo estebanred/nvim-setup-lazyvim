@@ -11,13 +11,13 @@ return {
 				section_separators = "",
 			},
 			sections = {
-				lualine_x = {
-					{
-						require("noice").api.status.command.get,
-						cond = require("noice").api.status.command.has,
-						color = { fg = "#3ae0a7", bg = "none" },
-					},
-				},
+				-- lualine_x = {
+				-- 	{
+				-- 		require("noice").api.status.command.get,
+				-- 		cond = require("noice").api.status.command.has,
+				-- 		color = { fg = "#3ae0a7", bg = "none" },
+				-- 	},
+				-- },
 				lualine_b = {
 					{
 						"branch",

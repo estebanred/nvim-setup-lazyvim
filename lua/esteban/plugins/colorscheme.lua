@@ -1,14 +1,15 @@
 -- return {}
--- return {
--- 	"folke/tokyonight.nvim",
--- 	priority = 1000, -- make sure to load this before all the other start plugins
--- 	config = function()
--- 		-- require("tokyonight").setup({
--- 		-- 	style = "moon",
--- 		-- })
--- 		vim.cmd([[colorscheme tokyonight-storm]])
--- 	end,
--- }
+return {
+	"folke/tokyonight.nvim",
+	priority = 1000, -- make sure to load this before all the other start plugins
+	config = function()
+		-- require("tokyonight").setup({
+		-- 	style = "moon",
+		-- })
+		vim.cmd([[colorscheme tokyonight-storm]])
+	end,
+}
+
 -- return {
 -- 	{
 -- 		"sainnhe/sonokai",
@@ -21,6 +22,7 @@
 -- 		end,
 -- 	},
 -- }
+
 -- return {
 -- 	"dgox16/oldworld.nvim",
 -- 	lazy = false,
@@ -30,6 +32,7 @@
 -- 		vim.cmd.colorscheme("oldworld")
 -- 	end,
 -- }
+
 -- return {
 -- 	"miikanissi/modus-themes.nvim",
 -- 	lazy = false,
@@ -39,16 +42,17 @@
 -- 		vim.cmd.colorscheme("modus")
 -- 	end,
 -- }
-return {
-	-- "rose-pine/neovim",
-	--
-	-- config = function()
-	-- 	require("rose-pine").setup({
-	-- 		variant = "moon",
-	-- 	})
-	-- 	vim.cmd("colorscheme rose-pine")
-	-- end,
-}
+
+-- return {
+-- 	-- "rose-pine/neovim",
+--
+-- config = function()
+-- 	require("rose-pine").setup({
+-- 		variant = "moon",
+-- 	})
+-- 	vim.cmd("colorscheme rose-pine")
+-- end,
+-- }
 
 -- return {
 -- 	"catppuccin/nvim",
@@ -93,6 +97,7 @@ return {
 -- 		vim.api.nvim_set_hl(0, "TelescopeTitle", { fg = title_color, bg = bg_color })
 -- 	end,
 -- }
+
 -- return {
 -- 	"shaunsingh/moonlight.nvim",
 -- 	config = function()
@@ -102,12 +107,14 @@ return {
 -- 		vim.g.moonlight_disable_background = true
 -- 	end,
 -- }
+
 -- return {
 -- 	"koalhack/koalight.nvim",
 -- 	init = function()
 -- 		vim.cmd("colorscheme koalight")
 -- 	end,
 -- }
+
 -- return {
 -- 	"cdmill/neomodern.nvim",
 -- 	lazy = false,
@@ -119,6 +126,7 @@ return {
 -- 		require("neomodern").load()
 -- 	end,
 -- }
+
 -- return {
 -- 	"navarasu/onedark.nvim",
 -- 	lazy = false,
