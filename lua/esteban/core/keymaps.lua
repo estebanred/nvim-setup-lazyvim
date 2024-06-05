@@ -13,7 +13,7 @@ keymap.set("i", "jj", "<ESC>", { desc = "Exit insert mode with jj" })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- delete single character without copying into register
--- keymap.set("n", "x", '"_x')
+keymap.set("n", "x", '"_x')
 -- keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move up and center" }) -- increment
 -- keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move down and center" }) -- increment
 -- nnoremap("<C-u>", "<C-u>zz")
@@ -50,3 +50,6 @@ keymap.set("n", "<leader><Tab>", ":bnext<cr>", { desc = "Open next buffer" })
 -- Visual mode mappings
 keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "Move selection down" })
 keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
+
+keymap.set({ "n", "v" }, "gr", "^", { desc = "Go to the start of line" })
+keymap.set({ "n", "v" }, "gt", "$", { desc = "Go to the end of line" })

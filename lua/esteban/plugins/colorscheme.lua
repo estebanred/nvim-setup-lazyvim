@@ -11,6 +11,18 @@ return {
 }
 
 -- return {
+-- 	"ribru17/bamboo.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	config = function()
+-- 		require("bamboo").setup({
+-- 			-- optional configuration here
+-- 		})
+-- 		require("bamboo").load()
+-- 	end,
+-- }
+
+-- return {
 -- 	{
 -- 		"sainnhe/sonokai",
 -- 		priority = 1000,
@@ -136,5 +148,12 @@ return {
 -- 			style = "cool",
 -- 		})
 -- 		require("onedark").load()
+-- 	end,
+-- }
+
+-- return {
+-- 	"EdenEast/nightfox.nvim",
+-- 	init = function()
+-- 		vim.cmd("colorscheme carbonfox")
 -- 	end,
 -- }
