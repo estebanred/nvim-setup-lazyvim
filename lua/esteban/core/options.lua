@@ -13,7 +13,7 @@ opt.autoindent = true -- copy indent from current line when starting new one
 
 -- line wrapping
 --opt.wrap = false -- disable line wrapping
-opt.wrap = true
+opt.wrap = false
 opt.linebreak = true
 opt.breakat = " "
 
@@ -51,3 +51,18 @@ opt.scrolloff = 10
 opt.inccommand = "split"
 opt.wildignore:append({ "*/node_modules/*" })
 opt.showmode = false
+
+-- Set cursor highlight
+vim.api.nvim_set_hl(0, "Cursor", { bg = "#3ae0a7", fg = "black" })
+
+-- Enable auto indenting and set it to spaces
+opt.smartindent = true
+opt.shiftwidth = 2
+
+-- Enable smart indenting (see https://stackoverflow.com/questions/1204149/smart-wrap-in-vim)
+opt.breakindent = true
+
+opt.undofile = true
+
+-- Place a column line
+opt.colorcolumn = "80"

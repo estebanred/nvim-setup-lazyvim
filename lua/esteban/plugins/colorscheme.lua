@@ -1,14 +1,14 @@
 -- return {}
-return {
-	"folke/tokyonight.nvim",
-	priority = 1000, -- make sure to load this before all the other start plugins
-	config = function()
-		-- require("tokyonight").setup({
-		-- 	style = "moon",
-		-- })
-		vim.cmd([[colorscheme tokyonight-storm]])
-	end,
-}
+-- return {
+-- 	"folke/tokyonight.nvim",
+-- 	priority = 1000, -- make sure to load this before all the other start plugins
+-- 	config = function()
+-- 		-- require("tokyonight").setup({
+-- 		-- 	style = "moon",
+-- 		-- })
+-- 		vim.cmd([[colorscheme tokyonight-storm]])
+-- 	end,
+-- }
 
 -- return {
 -- 	"ribru17/bamboo.nvim",
@@ -56,24 +56,58 @@ return {
 -- }
 
 -- return {
--- 	-- "rose-pine/neovim",
---
--- config = function()
--- 	require("rose-pine").setup({
--- 		variant = "moon",
--- 	})
--- 	vim.cmd("colorscheme rose-pine")
--- end,
--- }
-
--- return {
--- 	"catppuccin/nvim",
--- 	name = "catppuccin",
--- 	priority = 1000,
+-- 	"rose-pine/neovim",
+-- 	name = "rose-pine",
 -- 	config = function()
--- 		vim.cmd("colorscheme catppuccin")
+-- 		require("rose-pine").setup({
+-- 			extend_background_behind_borders = true,
+-- 			styles = {
+-- 				bold = true,
+-- 				italic = false,
+-- 				transparency = true,
+-- 			},
+-- 		})
+-- 		vim.cmd("colorscheme rose-pine-moon")
 -- 	end,
 -- }
+
+return {
+
+	{
+		"catppuccin/nvim",
+		config = function()
+			require("catppuccin").setup({
+				integrations = {
+					cmp = true,
+					gitsigns = true,
+					harpoon = true,
+					illuminate = true,
+					-- indent_blankline = {
+					-- 	enabled = false,
+					-- 	scope_color = "sapphire",
+					-- 	colored_indent_levels = false,
+					-- },
+					mason = true,
+					native_lsp = { enabled = true },
+					notify = true,
+					nvimtree = true,
+					neotree = true,
+					symbols_outline = true,
+					telescope = true,
+					treesitter = true,
+					treesitter_context = true,
+				},
+			})
+
+			vim.cmd.colorscheme("catppuccin-mocha")
+
+			-- Hide all semantic highlights until upstream issues are resolved (https://github.com/catppuccin/nvim/issues/480)
+			for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+				vim.api.nvim_set_hl(0, group, {})
+			end
+		end,
+	},
+}
 
 -- return {
 -- 	"olivercederborg/poimandres.nvim",
@@ -152,8 +186,8 @@ return {
 -- }
 
 -- return {
--- 	"EdenEast/nightfox.nvim",
+-- 	"Domeee/mosel.nvim",
 -- 	init = function()
--- 		vim.cmd("colorscheme carbonfox")
+-- 		vim.cmd("colorscheme mosel")
 -- 	end,
 -- }
