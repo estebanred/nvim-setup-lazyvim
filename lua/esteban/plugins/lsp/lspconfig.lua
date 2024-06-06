@@ -11,6 +11,7 @@ return {
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
 		"j-hui/fidget.nvim",
+		"RRethy/vim-illuminate",
 	},
 
 	config = function()
@@ -41,6 +42,9 @@ return {
 				function(server_name) -- default handler (optional)
 					require("lspconfig")[server_name].setup({
 						capabilities = capabilities,
+						on_attach = function(client, bufnr)
+							require("illuminate").on_attach(client)
+						end,
 					})
 				end,
 
@@ -48,6 +52,9 @@ return {
 					local lspconfig = require("lspconfig")
 					lspconfig.lua_ls.setup({
 						capabilities = capabilities,
+						on_attach = function(client, bufnr)
+							require("illuminate").on_attach(client)
+						end,
 						settings = {
 							Lua = {
 								diagnostics = {
