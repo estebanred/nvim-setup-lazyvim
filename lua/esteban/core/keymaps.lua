@@ -14,6 +14,8 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
+keymap.set("n", "<leader>ca", ":lua vim.lsp.buf.code_action()<CR>", { desc = "code action" }) -- increment
+
 -- keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Move up and center" }) -- increment
 -- keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Move down and center" }) -- increment
 -- nnoremap("<C-u>", "<C-u>zz")
